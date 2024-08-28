@@ -184,17 +184,34 @@ extension RecorderStateExtension on RecorderState {
   bool get isStopped => this == RecorderState.stopped;
 }
 
-/// Rate of updating the reported current duration.
+// /// Rate of updating the reported current duration.
+// enum UpdateFrequency {
+//   /// Reports duration at every 50 milliseconds.
+//   high(50),
+//
+//   /// Reports duration at every 100 milliseconds.
+//   medium(100),
+//
+//   /// Reports duration at every 200 milliseconds.
+//   low(200);
+//
+//   const UpdateFrequency(this.value);
+//   final int value;
+// }
+
 enum UpdateFrequency {
-  /// Reports duration at every 50 milliseconds.
-  high(50),
+  high, medium, low
+}
 
-  /// Reports duration at every 100 milliseconds.
-  medium(100),
-
-  /// Reports duration at every 200 milliseconds.
-  low(200);
-
-  const UpdateFrequency(this.value);
-  final int value;
+extension UpdateFrequencyX on UpdateFrequency{
+  int get value{
+    switch(this){
+      case UpdateFrequency.high:
+        return 50;
+      case UpdateFrequency.medium:
+        return 100;
+      case UpdateFrequency.low:
+        return 200;
+    }
+  }
 }

@@ -115,8 +115,9 @@ class PlayerController extends ChangeNotifier {
     double? volume,
     bool shouldExtractWaveform = true,
     int noOfSamples = 100,
+    isLocal = false,
   }) async {
-    path = Uri.parse(path).path;
+    path = isLocal ? Uri.parse(path).path : path;
     final isPrepared = await AudioWaveformsInterface.instance.preparePlayer(
       path: path,
       key: playerKey,
