@@ -11,9 +11,11 @@ import 'package:flutter/services.dart';
 part '../base/audio_waveforms_interface.dart';
 
 class PlayerController extends ChangeNotifier {
-  final List<double> _waveformData = [];
+  List<double> _waveformData = [];
 
   List<double> get waveformData => _waveformData;
+
+  void set waveformData(List<double> waveformData) => _waveformData = waveformData;
 
   PlayerState _playerState = PlayerState.stopped;
 
