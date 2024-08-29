@@ -200,12 +200,14 @@ extension RecorderStateExtension on RecorderState {
 // }
 
 enum UpdateFrequency {
-  high, medium, low
+  veryHigh, high, medium, low
 }
 
 extension UpdateFrequencyX on UpdateFrequency{
   int get value{
     switch(this){
+      case UpdateFrequency.veryHigh:
+        return 1;
       case UpdateFrequency.high:
         return 50;
       case UpdateFrequency.medium:
